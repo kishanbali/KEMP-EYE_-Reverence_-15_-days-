@@ -12,13 +12,11 @@
 :root{
   --bg:#05070b;
   --panel:#0b1018;
-  --panel2:#101722;
   --text:#f4f7fb;
   --muted:#8d99a8;
   --line:rgba(255,255,255,.09);
-  --glow:rgba(110,190,255,.55);
   --accent:#7bd8ff;
-  --danger:#ff7f8e;
+  --glow:rgba(110,190,255,.55);
 }
 
 *{
@@ -117,23 +115,23 @@ body{
   height:48px;
   border-radius:50%;
   background:
-    radial-gradient(circle,#020305 0 20%,#78dfff 21% 39%,#0c3445 40% 62%,#061018 63%);
+    radial-gradient(circle,
+      #020305 0 20%,
+      #78dfff 21% 39%,
+      #0c3445 40% 62%,
+      #061018 63%);
   left:51px;
   top:20px;
   box-shadow:0 0 22px rgba(100,220,255,.75);
 }
 
-.eye::after{
-  content:"";
-  position:absolute;
-  inset:-5px;
-  border-radius:75% 15%;
-  border-top:1px solid rgba(255,255,255,.18);
-}
-
 @keyframes eyeBreath{
-  0%,100%{transform:rotate(45deg) scaleY(1)}
-  50%{transform:rotate(45deg) scaleY(.82)}
+  0%,100%{
+    transform:rotate(45deg) scaleY(1)
+  }
+  50%{
+    transform:rotate(45deg) scaleY(.82)
+  }
 }
 
 .blink{
@@ -141,19 +139,26 @@ body{
 }
 
 @keyframes blink{
-  0%{transform:rotate(45deg) scaleY(.82)}
-  50%{transform:rotate(45deg) scaleY(.04)}
-  100%{transform:rotate(45deg) scaleY(1)}
+  0%{
+    transform:rotate(45deg) scaleY(.82)
+  }
+  50%{
+    transform:rotate(45deg) scaleY(.04)
+  }
+  100%{
+    transform:rotate(45deg) scaleY(1)
+  }
 }
 
-/* DAY */
+/* DAY CARD */
 
 .day-card{
   margin-top:17px;
   padding:20px;
   border:1px solid var(--line);
   border-radius:24px;
-  background:linear-gradient(145deg,rgba(17,24,35,.96),rgba(7,11,17,.96));
+  background:
+    linear-gradient(145deg,rgba(17,24,35,.96),rgba(7,11,17,.96));
 }
 
 .day-label{
@@ -223,12 +228,13 @@ body{
   height:100%;
   width:6.66%;
   border-radius:20px;
-  background:linear-gradient(90deg,#5bcaff,#c7f4ff);
+  background:
+    linear-gradient(90deg,#5bcaff,#c7f4ff);
   box-shadow:0 0 14px rgba(90,205,255,.65);
   transition:width .5s ease;
 }
 
-/* JOURNEY */
+/* 15 DAY DOTS */
 
 .journey{
   margin-top:15px;
@@ -253,7 +259,7 @@ body{
   background:white;
 }
 
-/* LIVE PANEL */
+/* LIVE */
 
 .live{
   margin-top:17px;
@@ -282,7 +288,10 @@ body{
   position:relative;
   background:
     radial-gradient(circle,#0d1822 0 55%,transparent 56%),
-    conic-gradient(var(--accent) var(--progress,0%),#17222d 0);
+    conic-gradient(
+      var(--accent) var(--progress,0%),
+      #17222d 0
+    );
   box-shadow:0 0 30px rgba(80,190,255,.1);
 }
 
@@ -328,7 +337,8 @@ button{
 }
 
 .start{
-  background:linear-gradient(135deg,#b8efff,#61cfff);
+  background:
+    linear-gradient(135deg,#b8efff,#61cfff);
   color:#031018;
   box-shadow:0 8px 25px rgba(70,190,255,.15);
 }
@@ -422,37 +432,64 @@ footer strong{
   margin-top:8px;
 }
 
-/* SMALL */
+/* MOBILE */
 
 @media(max-width:360px){
-  .brand{font-size:20px}
-  .frequency{font-size:40px}
-  .eye-stage{height:155px}
+
+  .brand{
+    font-size:20px;
+  }
+
+  .frequency{
+    font-size:40px;
+  }
+
+  .eye-stage{
+    height:155px;
+  }
+
 }
 </style>
 </head>
+
 
 <body>
 
 <main class="app">
 
+  <!-- HEADER -->
+
   <header class="header">
-    <div class="brand">KEMP EYE REVERBERANCE 👁</div>
+
+    <div class="brand">
+      KEMP EYE REVERBERANCE 👁
+    </div>
 
     <div class="subtitle">
       <span>15-DAY</span>
       <span>Reverberance</span>
       <span>PRACTICE</span>
     </div>
+
   </header>
 
+
+  <!-- EYE -->
+
   <section class="eye-stage">
+
     <div class="eye" id="eye"></div>
+
   </section>
+
+
+  <!-- DAY -->
 
   <section class="day-card">
 
-    <div class="day-label">CURRENT EXPERIENCE</div>
+    <div class="day-label">
+      CURRENT EXPERIENCE
+    </div>
 
     <div class="day-number" id="dayNumber">
       DAY 1
@@ -462,28 +499,54 @@ footer strong{
       174
     </div>
 
-    <div class="hz">HERTZ</div>
+    <div class="hz">
+      HERTZ
+    </div>
 
     <p class="experience-text">
       Live frequency experience
     </p>
 
+
+    <!-- BATTERY -->
+
     <div class="battery-wrap">
 
       <div class="battery-top">
-        <span>15-DAY JOURNEY</span>
-        <span id="progressText">0 / 15</span>
+
+        <span>
+          15-DAY JOURNEY
+        </span>
+
+        <span id="progressText">
+          0 / 15
+        </span>
+
       </div>
 
       <div class="battery">
-        <div class="battery-fill" id="batteryFill"></div>
+
+        <div
+          class="battery-fill"
+          id="batteryFill">
+        </div>
+
       </div>
 
-      <div class="journey" id="journey"></div>
+
+      <!-- DAY DOTS -->
+
+      <div
+        class="journey"
+        id="journey">
+      </div>
 
     </div>
 
   </section>
+
+
+  <!-- LIVE EXPERIENCE -->
 
   <section class="live">
 
@@ -491,47 +554,95 @@ footer strong{
       LIVE FREQUENCY EXPERIENCE
     </div>
 
-    <div class="timer" id="timer">
-      <div class="timer-value" id="timerValue">
+
+    <div
+      class="timer"
+      id="timer">
+
+      <div
+        class="timer-value"
+        id="timerValue">
+
         10:00
+
       </div>
+
     </div>
 
-    <div class="live-message" id="liveMessage">
+
+    <div
+      class="live-message"
+      id="liveMessage">
+
       Press START to begin the live frequency.
+
     </div>
+
 
     <div class="buttons">
 
-      <button class="start" id="startButton">
+      <button
+        class="start"
+        id="startButton">
+
         START LIVE EXPERIENCE
+
       </button>
 
-      <button class="complete" id="completeButton" disabled>
+
+      <button
+        class="complete"
+        id="completeButton"
+        disabled>
+
         COMPLETE DAY
+
       </button>
 
     </div>
 
   </section>
 
-  <button class="reset" id="resetButton">
+
+  <!-- RESET -->
+
+  <button
+    class="reset"
+    id="resetButton">
+
     RESET PROGRESS → DAY 1
+
   </button>
+
+
+  <!-- FOOTER -->
 
   <footer>
 
-    <strong>© @KishanBali / KEMP Wisdom Publications</strong><br>
+    <strong>
+      © @KishanBali / KEMP Wisdom Publications
+    </strong>
+
+    <br>
+
     All Rights Reserved
 
+
     <div class="footer-buttons">
+
       <button id="disclaimerButton">
+
         HEALTH &amp; SAFETY DISCLAIMER
+
       </button>
+
     </div>
 
+
     <div style="margin-top:8px">
+
       Chrome Mobile / PWA Preview · Version 1.0
+
     </div>
 
   </footer>
@@ -539,33 +650,45 @@ footer strong{
 </main>
 
 
-<!-- DISCLAIMER -->
+<!-- DISCLAIMER MODAL -->
 
-<div class="modal" id="modal">
+<div
+  class="modal"
+  id="modal">
 
   <div class="modal-box">
 
-    <h2>Health &amp; Safety Disclaimer</h2>
+    <h2>
+      Health &amp; Safety Disclaimer
+    </h2>
 
     <p>
-      KEMP EYE REVERBERANCE is an experiential audio application.
-      The frequency experiences are not presented as medical treatment,
-      diagnosis, or a substitute for professional healthcare.
+      KEMP EYE REVERBERANCE is an experiential
+      audio application. The frequency experiences
+      are not presented as medical treatment,
+      diagnosis, or a substitute for professional
+      healthcare.
     </p>
 
     <p>
-      Keep your device volume at a comfortable level. Stop the experience
-      if you experience discomfort, dizziness, headache, ringing in the ears,
-      anxiety, or any other unwanted effect.
+      Keep your device volume at a comfortable level.
+      Stop the experience if you experience discomfort,
+      dizziness, headache, ringing in the ears, anxiety,
+      or any other unwanted effect.
     </p>
 
     <p>
-      Do not use the experience while driving, operating machinery,
-      or in situations where awareness of your surroundings is important.
+      Do not use the experience while driving,
+      operating machinery, or in situations where
+      awareness of your surroundings is important.
     </p>
 
-    <button class="close" id="closeModal">
+    <button
+      class="close"
+      id="closeModal">
+
       CLOSE
+
     </button>
 
   </div>
@@ -575,84 +698,139 @@ footer strong{
 
 <script>
 
-/* =========================================================
-   KEMP EYE REVERBERANCE
-   15-DAY FREQUENCY EXPERIENCE
-   Browser-generated audio only.
-   No external audio files.
-   No data collection.
-   ========================================================= */
+/* =====================================================
+   KEMP EYE REVERBERANCE 👁
+   15-DAY FREQUENCY PRACTICE
+
+   ORIGINAL BROWSER-GENERATED AUDIO
+   NO EXTERNAL AUDIO FILES
+   NO CC0 AUDIO
+   NO CREATIVE COMMONS AUDIO
+   NO BINAURAL AUDIO
+   NO DATA COLLECTION
+   ===================================================== */
 
 
-/* 15 FREQUENCIES */
+/* =====================================================
+   15 DAYS — EVERY DAY HAS A FREQUENCY
+   ===================================================== */
 
 const frequencies = [
-  174,
-  285,
-  396,
-  417,
-  528,
-  639,
-  741,
-  852,
-  963,
-  174,
-  285,
-  396,
-  417,
-  528,
-  639
+
+  174,  // DAY 1
+  285,  // DAY 2
+  396,  // DAY 3
+  417,  // DAY 4
+  528,  // DAY 5
+  639,  // DAY 6
+  741,  // DAY 7
+  852,  // DAY 8
+  963,  // DAY 9
+  174,  // DAY 10
+  285,  // DAY 11
+  396,  // DAY 12
+  417,  // DAY 13
+  528,  // DAY 14
+  639   // DAY 15
+
 ];
 
 
-/* EXPERIENCE LENGTH
-   10 minutes per day */
+/* =====================================================
+   EXPERIENCE TIME
+   10 MINUTES PER DAY
+   ===================================================== */
 
 const EXPERIENCE_SECONDS = 10 * 60;
 
 
-/* STATE */
+/* =====================================================
+   STATE
+   ===================================================== */
 
 let currentDay = 1;
+
 let running = false;
+
 let completed = false;
+
 let timerInterval = null;
-let secondsRemaining = EXPERIENCE_SECONDS;
+
+let secondsRemaining =
+  EXPERIENCE_SECONDS;
+
+
+/* =====================================================
+   AUDIO
+   ===================================================== */
 
 let audioContext = null;
+
 let oscillator = null;
+
 let gainNode = null;
+
 let filterNode = null;
 
 
-/* ELEMENTS */
+/* =====================================================
+   ELEMENTS
+   ===================================================== */
 
-const dayNumber = document.getElementById("dayNumber");
-const frequencyText = document.getElementById("frequency");
-const batteryFill = document.getElementById("batteryFill");
-const progressText = document.getElementById("progressText");
-const journey = document.getElementById("journey");
+const dayNumber =
+  document.getElementById("dayNumber");
 
-const timer = document.getElementById("timer");
-const timerValue = document.getElementById("timerValue");
-const liveMessage = document.getElementById("liveMessage");
+const frequencyText =
+  document.getElementById("frequency");
 
-const startButton = document.getElementById("startButton");
-const completeButton = document.getElementById("completeButton");
-const resetButton = document.getElementById("resetButton");
+const batteryFill =
+  document.getElementById("batteryFill");
 
-const eye = document.getElementById("eye");
+const progressText =
+  document.getElementById("progressText");
 
-const modal = document.getElementById("modal");
-const disclaimerButton = document.getElementById("disclaimerButton");
-const closeModal = document.getElementById("closeModal");
+const journey =
+  document.getElementById("journey");
+
+const timer =
+  document.getElementById("timer");
+
+const timerValue =
+  document.getElementById("timerValue");
+
+const liveMessage =
+  document.getElementById("liveMessage");
+
+const startButton =
+  document.getElementById("startButton");
+
+const completeButton =
+  document.getElementById("completeButton");
+
+const resetButton =
+  document.getElementById("resetButton");
+
+const eye =
+  document.getElementById("eye");
+
+const modal =
+  document.getElementById("modal");
+
+const disclaimerButton =
+  document.getElementById("disclaimerButton");
+
+const closeModal =
+  document.getElementById("closeModal");
 
 
-/* BUILD 15 DAY DOTS */
+/* =====================================================
+   CREATE 15 DAY DOTS
+   ===================================================== */
 
 for(let i = 1; i <= 15; i++){
 
-  const dot = document.createElement("div");
+  const dot =
+    document.createElement("div");
 
   dot.className = "dot";
 
@@ -663,44 +841,86 @@ for(let i = 1; i <= 15; i++){
 }
 
 
-/* DISPLAY */
+/* =====================================================
+   UPDATE SCREEN
+   ===================================================== */
 
 function updateDisplay(){
 
-  const freq = frequencies[currentDay - 1];
+  const frequency =
+    frequencies[currentDay - 1];
 
-  dayNumber.textContent = "DAY " + currentDay;
 
-  frequencyText.textContent = freq;
+  dayNumber.textContent =
+    "DAY " + currentDay;
 
-  const percent = ((currentDay - 1) / 15) * 100;
+
+  frequencyText.textContent =
+    frequency;
+
+
+  /*
+   Battery shows journey progress.
+   Day 1 starts with a small visible charge.
+  */
+
+  let percent =
+    ((currentDay - 1) / 15) * 100;
+
+
+  if(currentDay === 15){
+    percent = 93.33;
+  }
+
 
   batteryFill.style.width =
     Math.max(6.66, percent) + "%";
 
+
   progressText.textContent =
     (currentDay - 1) + " / 15";
 
-  document.querySelectorAll(".dot").forEach((dot,index)=>{
 
-    dot.classList.remove("active","current");
+  /* Update dots */
 
-    if(index + 1 < currentDay){
-      dot.classList.add("active");
-    }
+  document
+    .querySelectorAll(".dot")
+    .forEach((dot,index)=>{
 
-    if(index + 1 === currentDay){
-      dot.classList.add("current");
-    }
+      dot.classList.remove(
+        "active",
+        "current"
+      );
 
-  });
+
+      if(index + 1 < currentDay){
+
+        dot.classList.add(
+          "active"
+        );
+
+      }
+
+
+      if(index + 1 === currentDay){
+
+        dot.classList.add(
+          "current"
+        );
+
+      }
+
+    });
+
 
   resetTimer();
 
 }
 
 
-/* FORMAT TIMER */
+/* =====================================================
+   TIMER FORMAT
+   ===================================================== */
 
 function formatTime(seconds){
 
@@ -710,16 +930,25 @@ function formatTime(seconds){
   const secs =
     seconds % 60;
 
+
   return (
-    String(minutes).padStart(2,"0")
+
+    String(minutes)
+      .padStart(2,"0")
+
     + ":" +
-    String(secs).padStart(2,"0")
+
+    String(secs)
+      .padStart(2,"0")
+
   );
 
 }
 
 
-/* TIMER */
+/* =====================================================
+   RESET TIMER
+   ===================================================== */
 
 function resetTimer(){
 
@@ -727,32 +956,46 @@ function resetTimer(){
 
   running = false;
 
-  secondsRemaining = EXPERIENCE_SECONDS;
+  completed = false;
+
+  secondsRemaining =
+    EXPERIENCE_SECONDS;
+
 
   timerValue.textContent =
     formatTime(secondsRemaining);
+
 
   timer.style.setProperty(
     "--progress",
     "0%"
   );
 
-  startButton.disabled = false;
 
-  completeButton.disabled = true;
+  startButton.disabled =
+    false;
+
+
+  completeButton.disabled =
+    true;
+
 
   startButton.textContent =
     "START LIVE EXPERIENCE";
 
+
   liveMessage.textContent =
     "Press START to begin the live frequency.";
+
 
   stopAudio();
 
 }
 
 
-/* AUDIO */
+/* =====================================================
+   CREATE AUDIO
+   ===================================================== */
 
 function createAudio(){
 
@@ -760,34 +1003,61 @@ function createAudio(){
     return;
   }
 
+
   audioContext =
-    new (window.AudioContext ||
-         window.webkitAudioContext)();
+    new (
+      window.AudioContext ||
+      window.webkitAudioContext
+    )();
+
 
   oscillator =
     audioContext.createOscillator();
 
+
   gainNode =
     audioContext.createGain();
+
 
   filterNode =
     audioContext.createBiquadFilter();
 
 
-  oscillator.type = "sine";
+  /*
+   Pure sine oscillator.
+   Frequency changes according to the current day.
+  */
+
+  oscillator.type =
+    "sine";
+
 
   oscillator.frequency.value =
     frequencies[currentDay - 1];
 
 
-  filterNode.type = "lowpass";
+  /*
+   Gentle low-pass filtering.
+  */
 
-  filterNode.frequency.value = 1400;
+  filterNode.type =
+    "lowpass";
 
-  filterNode.Q.value = 0.5;
+
+  filterNode.frequency.value =
+    1400;
 
 
-  gainNode.gain.value = 0;
+  filterNode.Q.value =
+    0.5;
+
+
+  /*
+   Start silent.
+  */
+
+  gainNode.gain.value =
+    0;
 
 
   oscillator
@@ -801,220 +1071,383 @@ function createAudio(){
 }
 
 
-/* START AUDIO */
+/* =====================================================
+   START AUDIO
+   ===================================================== */
 
 async function startAudio(){
 
   createAudio();
 
+
   if(audioContext.state === "suspended"){
+
     await audioContext.resume();
+
   }
+
 
   const now =
     audioContext.currentTime;
 
-  oscillator.frequency.cancelScheduledValues(now);
 
-  oscillator.frequency.setValueAtTime(
-    frequencies[currentDay - 1],
-    now
-  );
+  const frequency =
+    frequencies[currentDay - 1];
 
-  gainNode.gain.cancelScheduledValues(now);
 
-  gainNode.gain.setValueAtTime(
-    0,
-    now
-  );
+  oscillator.frequency
+    .cancelScheduledValues(now);
 
-  gainNode.gain.linearRampToValueAtTime(
-    0.09,
-    now + 2
-  );
+
+  oscillator.frequency
+    .setValueAtTime(
+      frequency,
+      now
+    );
+
+
+  gainNode.gain
+    .cancelScheduledValues(now);
+
+
+  gainNode.gain
+    .setValueAtTime(
+      0,
+      now
+    );
+
+
+  /*
+   Gentle fade-in.
+  */
+
+  gainNode.gain
+    .linearRampToValueAtTime(
+      0.09,
+      now + 2
+    );
 
 }
 
 
-/* STOP AUDIO */
+/* =====================================================
+   STOP AUDIO
+   ===================================================== */
 
 function stopAudio(){
 
-  if(!audioContext || !gainNode){
+  if(
+    !audioContext ||
+    !gainNode
+  ){
+
     return;
+
   }
+
 
   const now =
     audioContext.currentTime;
 
-  gainNode.gain.cancelScheduledValues(now);
 
-  gainNode.gain.setValueAtTime(
-    gainNode.gain.value,
-    now
-  );
+  gainNode.gain
+    .cancelScheduledValues(now);
 
-  gainNode.gain.linearRampToValueAtTime(
-    0,
-    now + 1
-  );
+
+  gainNode.gain
+    .setValueAtTime(
+      gainNode.gain.value,
+      now
+    );
+
+
+  gainNode.gain
+    .linearRampToValueAtTime(
+      0,
+      now + 1
+    );
 
 }
 
 
-/* START EXPERIENCE */
+/* =====================================================
+   START EXPERIENCE
+   ===================================================== */
 
-startButton.addEventListener("click", async ()=>{
+startButton.addEventListener(
+  "click",
+  async ()=>{
 
-  if(running){
-    return;
+    if(running){
+      return;
+    }
+
+
+    await startAudio();
+
+
+    running = true;
+
+    completed = false;
+
+
+    startButton.disabled =
+      true;
+
+
+    completeButton.disabled =
+      true;
+
+
+    liveMessage.textContent =
+      "Experience the frequency.";
+
+
+    /*
+     Eye blink when experience begins.
+    */
+
+    eye.classList.remove(
+      "blink"
+    );
+
+
+    void eye.offsetWidth;
+
+
+    eye.classList.add(
+      "blink"
+    );
+
+
+    /*
+     Countdown.
+    */
+
+    timerInterval =
+      setInterval(()=>{
+
+        secondsRemaining--;
+
+
+        timerValue.textContent =
+          formatTime(
+            secondsRemaining
+          );
+
+
+        const progress =
+          (
+            (
+              EXPERIENCE_SECONDS -
+              secondsRemaining
+            )
+            /
+            EXPERIENCE_SECONDS
+          ) * 100;
+
+
+        timer.style.setProperty(
+          "--progress",
+          progress + "%"
+        );
+
+
+        /*
+         Experience finished.
+        */
+
+        if(
+          secondsRemaining <= 0
+        ){
+
+          clearInterval(
+            timerInterval
+          );
+
+
+          running = false;
+
+          completed = true;
+
+
+          stopAudio();
+
+
+          completeButton.disabled =
+            false;
+
+
+          startButton.disabled =
+            false;
+
+
+          startButton.textContent =
+            "EXPERIENCE COMPLETE";
+
+
+          liveMessage.textContent =
+            "The live frequency experience is complete.";
+
+        }
+
+      },1000);
+
   }
-
-  await startAudio();
-
-  running = true;
-
-  completed = false;
-
-  startButton.disabled = true;
-
-  completeButton.disabled = true;
-
-  liveMessage.textContent =
-    "Experience the frequency.";
-
-  eye.classList.remove("blink");
-
-  void eye.offsetWidth;
-
-  eye.classList.add("blink");
+);
 
 
-  timerInterval =
-    setInterval(()=>{
+/* =====================================================
+   COMPLETE DAY
+   ===================================================== */
 
-      secondsRemaining--;
+completeButton.addEventListener(
+  "click",
+  ()=>{
 
-      timerValue.textContent =
-        formatTime(secondsRemaining);
-
-
-      const progress =
-        ((EXPERIENCE_SECONDS -
-          secondsRemaining) /
-          EXPERIENCE_SECONDS) * 100;
+    if(!completed){
+      return;
+    }
 
 
-      timer.style.setProperty(
-        "--progress",
-        progress + "%"
-      );
+    /*
+     DAYS 1–14
+    */
+
+    if(currentDay < 15){
+
+      currentDay++;
+
+      updateDisplay();
+
+      return;
+
+    }
 
 
-      if(secondsRemaining <= 0){
+    /*
+     DAY 15 COMPLETE
+    */
 
-        clearInterval(timerInterval);
-
-        running = false;
-
-        completed = true;
-
-        stopAudio();
-
-        completeButton.disabled = false;
-
-        startButton.disabled = false;
-
-        startButton.textContent =
-          "EXPERIENCE COMPLETE";
-
-        liveMessage.textContent =
-          "The live frequency experience is complete.";
-
-      }
-
-    },1000);
-
-});
+    currentDay = 15;
 
 
-/* COMPLETE DAY */
+    batteryFill.style.width =
+      "100%";
 
-completeButton.addEventListener("click", ()=>{
 
-  if(!completed){
-    return;
-  }
+    progressText.textContent =
+      "15 / 15";
 
-  if(currentDay < 15){
 
-    currentDay++;
-
-    updateDisplay();
-
-  }else{
-
-    completeButton.disabled = true;
-
-    batteryFill.style.width = "100%";
-
-    progressText.textContent = "15 / 15";
-
-    document.querySelectorAll(".dot")
+    document
+      .querySelectorAll(".dot")
       .forEach(dot=>{
-        dot.classList.add("active");
-        dot.classList.remove("current");
+
+        dot.classList.add(
+          "active"
+        );
+
+        dot.classList.remove(
+          "current"
+        );
+
       });
+
+
+    completeButton.disabled =
+      true;
+
+
+    startButton.disabled =
+      false;
+
+
+    startButton.textContent =
+      "15-DAY PRACTICE COMPLETE";
+
 
     liveMessage.textContent =
       "15-Day Reverberance Practice complete.";
 
   }
-
-});
-
-
-/* RESET */
-
-resetButton.addEventListener("click", ()=>{
-
-  clearInterval(timerInterval);
-
-  stopAudio();
-
-  currentDay = 1;
-
-  completed = false;
-
-  updateDisplay();
-
-});
+);
 
 
-/* DISCLAIMER */
+/* =====================================================
+   RESET TO DAY 1
+   ===================================================== */
 
-disclaimerButton.addEventListener("click", ()=>{
+resetButton.addEventListener(
+  "click",
+  ()=>{
 
-  modal.classList.add("show");
+    clearInterval(
+      timerInterval
+    );
 
-});
 
-closeModal.addEventListener("click", ()=>{
+    stopAudio();
 
-  modal.classList.remove("show");
 
-});
+    currentDay = 1;
 
-modal.addEventListener("click",(event)=>{
 
-  if(event.target === modal){
-    modal.classList.remove("show");
+    updateDisplay();
+
   }
+);
 
-});
+
+/* =====================================================
+   DISCLAIMER
+   ===================================================== */
+
+disclaimerButton.addEventListener(
+  "click",
+  ()=>{
+
+    modal.classList.add(
+      "show"
+    );
+
+  }
+);
 
 
-/* INITIAL */
+closeModal.addEventListener(
+  "click",
+  ()=>{
+
+    modal.classList.remove(
+      "show"
+    );
+
+  }
+);
+
+
+modal.addEventListener(
+  "click",
+  (event)=>{
+
+    if(
+      event.target === modal
+    ){
+
+      modal.classList.remove(
+        "show"
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   INITIAL SCREEN
+   ===================================================== */
 
 updateDisplay();
 
