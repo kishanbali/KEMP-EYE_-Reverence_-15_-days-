@@ -1,0 +1,39 @@
+name: Create PWA PNG Icons
+on:
+  push:
+    branches: [main]
+jobs:
+  icons:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate PNG icons
+        run: |
+          python3 - <<'PY'
+          import struct,zlib
+          def png(path,n):
+              rows=[]
+              for y in range(n):
+                  row=bytearray([0])
+                  for x in range(n):
+                      bg=(5,7,11,255); cx=n/2; cy=n/2; r=n*.32
+                      dx=x-cx; dy=y-cy
+                      edge=abs((dx*dx+dy*dy)**0.5-r)<n*.018
+                      inner=(dx*dx+dy*dy)**0.5<n*.16
+                      pupil=(dx*dx+dy*dy)**0.5<n*.07
+                      row += bytes((123,216,255,255) if (edge or inner) else ((5,7,11,255) if pupil else bg))
+                  rows.append(bytes(row))
+              raw=b''.join(rows)
+              def chunk(t,d): return struct.pack('>I',len(d))+t+d+struct.pack('>I',zlib.crc32(t+d)&0xffffffff)
+              data=b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>IIBBBBB',n,n,8,6,0,0,0))+chunk(b'IDAT',zlib.compress(raw,9))+chunk(b'IEND',b'')
+              open(path,'wb').write(data)
+          png('icon-192.png',192)
+          png('icon-512.png',512)
+          PY
+      - name: Commit generated icons
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add icon-192.png icon-512.png
+          git diff --cached --quiet || git commit -m "Generate PWA PNG icons"
+          git push
